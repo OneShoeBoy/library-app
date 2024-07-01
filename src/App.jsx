@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
+import libraryService from './services/library'
 
 const BookForm = () => {
   return (
@@ -28,7 +30,11 @@ const Library = ({ title }) => {
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [books, setBooks] = useState([])
+
+  useEffect(
+    libraryService.getBooks().then(initialBooks => setBooks(initialBooks)
+    ), [])
 
   return (
     <div>
