@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import libraryService from './services/library'
+import libraryService from './services/libraryService'
 
 const BookForm = () => {
   return (
@@ -9,21 +9,24 @@ const BookForm = () => {
     </div>
   )
 }
-const Book = ({ title }) => {
+const Book = ({ book }) => {
   return (
     <div>
-      <ul>
-        <li>{title}</li>
-      </ul>
+      <p>{book.title}</p>
     </div>
   )
 }
 
-const Library = ({ title }) => {
+const Library = ({ books }) => {
   return (
     <div>
       <h2>Books</h2>
-      <Book title={title} />
+      {books.map(book =>
+        <Book
+          key={book.id}
+          book={book}
+        />
+      )}
     </div>
   )
 }
@@ -32,14 +35,18 @@ const Library = ({ title }) => {
 function App() {
   const [books, setBooks] = useState([])
 
-  useEffect(
-    libraryService.getBooks().then(initialBooks => setBooks(initialBooks)
-    ), [])
+  useEffect(() => {
+    libraryService.getBooks().then(initialBooks => {
+      setBooks(initialBooks)
+      console.log(books)
+    })
+  }, [])
+
 
   return (
     <div>
       <h1>Library</h1>
-      <Library title='Some title' />
+      <Library books={books} />
       <BookForm />
     </div>
   )
