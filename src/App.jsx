@@ -1,31 +1,11 @@
 import { useState, useEffect } from 'react'
 
-import BookForm from './components/BookForm'
+import Library from './components/Library'
+import AddBook from './components/AddBook'
 
 import libraryService from './services/libraryService'
 
-const Book = ({ book }) => {
-  return (
-    <div>
-      {book.title}
-      <button>Delete book</button>
-    </div>
-  )
-}
 
-const Library = ({ books }) => {
-  return (
-    <div>
-      <h2>Books</h2>
-      {books.map(book =>
-        <Book
-          key={book.id}
-          book={book}
-        />
-      )}
-    </div>
-  )
-}
 
 
 function App() {
@@ -44,7 +24,7 @@ function App() {
       <h1>Library</h1>
       <Library books={books} />
       <br></br>
-      <BookForm />
+      <AddBook />
     </div>
   )
 

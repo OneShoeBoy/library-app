@@ -1,0 +1,37 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  /*justify-content: space-evenly;*/
+  align-items: center;
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+  background-color: lightGrey;
+  border: 2px solid lightGrey;
+  border-radius: 12px;
+  position:  absolute;
+  width: 250px;
+  top: 70px;
+  left: calc(50% - 125px);
+  bottom: 70px;
+}
+
+/*.modalTitle {*/
+/*  display: flex;*/
+/*  flex-basis: content;*/
+/*}*/
+/**/
+/*.modalForm{*/
+/*  display: flex;*/
+/*  flex-basis: auto;*/
+/*  flex-direction: column;*/
+/*  justify-content: space-evenly;*/
+/*}*/
+/**/
+/*.modalForm > div{*/
+/*  padding: 5px;*/
+/*  margin: 5px;*/
+/*}*/
+/**/
+/*.modalForm > button{*/
+/*  margin: auto; */
+/*  width: fit-content;*/
+/*}*/
