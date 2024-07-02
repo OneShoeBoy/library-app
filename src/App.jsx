@@ -1,18 +1,14 @@
 import { useState, useEffect } from 'react'
 
+import BookForm from './components/BookForm'
+
 import libraryService from './services/libraryService'
 
-const BookForm = () => {
-  return (
-    <div>
-      <button>Add a new book</button>
-    </div>
-  )
-}
 const Book = ({ book }) => {
   return (
     <div>
-      <p>{book.title}</p>
+      {book.title}
+      <button>Delete book</button>
     </div>
   )
 }
@@ -47,6 +43,7 @@ function App() {
     <div>
       <h1>Library</h1>
       <Library books={books} />
+      <br></br>
       <BookForm />
     </div>
   )
